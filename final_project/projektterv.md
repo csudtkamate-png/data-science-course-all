@@ -30,7 +30,7 @@ plusz repülőtéri óránkénti időjárás (Iowa Environmental Mesonet, ASOS/M
 | `airports.csv` | repülőtér-kód, név, város, állam, ország, koordináták | kicsi |
 | `airlines.csv` | 14 légitársaság kódja és neve | kicsi |
 
-**A Delta-részhalmaz:** a járatok kb. 15%-a, **~870 ezer járat** (a pontos számot az előkészítés után írjuk be).
+**A Delta-részhalmaz:** a járatok 15,1%-a, **875 881 járat** (ebből a tanító időszakban, jan.–szept. 657 462; a 15 percnél nagyobb érkezési késés aránya itt 13,7%).
 Miért a Delta? Kezelhető méret, és **megmarad a gépek teljes útja**, ami a késés-tovagyűrűzéshez kell. Az atlantai központ miatt az időjárás hatása is jól látszik.
 
 **Időjárás:** IEM ASOS/METAR (https://mesonet.agron.iastate.edu/request/download.phtml), ingyenes, bejelentkezés nélkül. Óránkénti mérés repülőterenként,
@@ -38,7 +38,7 @@ ugyanazzal a hárombetűs kóddal, mint a járatadat. Kipróbálva: `ATL`, 2015-
 
 **Ismert buktatók:**
 - Az időpontok **helyi időben** vannak, ÓÓPP formátumban (`0545`); a `2400` érték éjfélt jelöl.
-- Az **októberi** járatoknál a repülőtér-kódok (tudomásunk szerint) számok, nem IATA-kódok → az október a tanító és a teszt közötti résbe kerül, a modellezésből kimarad.
+- Az **októberi** járatoknál a repülőtér-kódok számok, nem IATA-kódok (az EDA szerint a Delta októberi járatainak 100%-ánál, más hónapban egyszer sem) → az október a tanító és a teszt közötti résbe kerül, a modellezésből kimarad.
 - A törölt és elterelt járatoknak nincs érkezési késésük → a fő elemzésből kimaradnak, de az EDA-ban külön megnézzük őket.
 
 ---
@@ -176,7 +176,7 @@ Repó: https://github.com/csudtkamate-png/data-science-course-all (a `final_proj
 final_project/
 ├── .gitignore              ← a data/ mappa és a gyorsítótárak nem kerülnek a repóba
 ├── projektterv.md          ← ez a fájl
-├── 01_eda.ipynb            ← adat-előkészítés + EDA (elkészült, az adatra vár)
+├── 01_eda.ipynb            ← adat-előkészítés + EDA (lefuttatva a valódi adaton)
 ├── 02_idojaras.ipynb       ← időjárás letöltése és összekapcsolása
 ├── 03_modell.ipynb         ← split, modell-létra, diagnosztika, visszacsatolás, teszt
 └── data/                   ← flights.csv, airports.csv, airlines.csv (a Kaggle-ről)
@@ -185,7 +185,7 @@ final_project/
 | Lépés | Állapot |
 |---|---|
 | Terv | ✅ |
-| EDA notebook | ✅ megírva, kitalált mintán tesztelve; az igazi adatra vár |
-| Adat letöltése a Kaggle-ről | ⏳ bejelentkezés kell |
+| EDA notebook | ✅ lefuttatva a valódi adaton, az értelmezések és az összefoglaló kitöltve |
+| Adat letöltése a Kaggle-ről | ✅ letöltve (a `data/` mappa nincs a repóban) |
 | Időjárás | ⏳ |
 | Modellezés | ⏳ |
